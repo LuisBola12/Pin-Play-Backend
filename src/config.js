@@ -1,7 +1,6 @@
 import { config } from 'dotenv'
 config();
 export default {
-  
   port: process.env.PORT || 4000,
   bucketName: process.env.AWS_BUCKET_NAME,
   region: process.env.AWS_BUCKET_REGION,
