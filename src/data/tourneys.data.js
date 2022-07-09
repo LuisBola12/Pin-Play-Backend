@@ -1,4 +1,4 @@
-export const tourneysPlayed = [
+exports.tourneysPlayed = [
   {
       Tourney_id: 1,
       Name: "Torneo Benéfico Scotiabank",
@@ -136,7 +136,7 @@ export const tourneysPlayed = [
     }
 ];
 
-export const categories = [
+exports.categories = [
     {
         Category: "Primera",
     },

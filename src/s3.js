@@ -1,5 +1,5 @@
-import S3 from 'aws-sdk/clients/s3';
-import config from './config';
+const S3 = require('aws-sdk/clients/s3');
+const config = require('./config');
 
 
 const region = config.region;
@@ -13,7 +13,7 @@ const s3 = new S3({
 });
 
 //upload a file to s3
-export const uploadImageToAWS = (file, AWSFilePath) =>{
+exports.uploadImageToAWS = (file, AWSFilePath) =>{
     const uploadParams = {
         Bucket: bucketName,
         Body: file.data,
@@ -23,7 +23,7 @@ export const uploadImageToAWS = (file, AWSFilePath) =>{
 };
 
 //download an image from s3
-export const getImageFromAWS = (fileKey) => {
+exports.getImageFromAWS = (fileKey) => {
     try {
         const downloadParams = {
             Key:fileKey,

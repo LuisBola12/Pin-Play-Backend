@@ -1,6 +1,6 @@
-import jwt from 'jsonwebtoken'
+const jwt = require('jsonwebtoken');
 
-export const tokenSign = async(user) => {
+exports.tokenSign = async(user) => {
   return jwt.sign(
   {
     email:user,
@@ -12,7 +12,7 @@ export const tokenSign = async(user) => {
   )
 }
 
-export const verifyToken = async (token) => {
+exports.verifyToken = async (token) => {
   try{
     return jwt.verify(token, process.env.JW_Token);
   }catch(error){

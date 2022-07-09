@@ -1,4 +1,4 @@
-export const players = [
+exports.players = [
     {
         userID: 1,
         position: 1,
@@ -261,7 +261,7 @@ export const players = [
     },
 ]
 
-export const tourneysPlayersRelation = [
+exports.tourneysPlayersRelation = [
     {
         Tourney_id: 1,
         licenseNumber: 711,
@@ -409,7 +409,7 @@ export const tourneysPlayersRelation = [
 
 ]
 
-export const losesVictoryRate = [
+exports.losesVictoryRate = [
     {
         licenseNumber: 711,
         victories: 60,

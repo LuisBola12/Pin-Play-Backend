@@ -1,4 +1,4 @@
-export const validateSchema = (validSchema) => {
+exports.validateSchema = (validSchema) => {
   return (req, res, next) => {
       const userPayload = req.body;
       const validationResult = validSchema.validate(userPayload);

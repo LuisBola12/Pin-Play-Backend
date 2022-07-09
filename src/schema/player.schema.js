@@ -1,6 +1,6 @@
-import Joi from '@hapi/joi'
+const Joi = require('@hapi/joi');
 
-const playerSchema = Joi.object({
+exports.playerSchema = Joi.object({
   name_register: Joi.string().required(),
   lastname1_register: Joi.string().required(),
   lastname2_register: Joi.string().required(),
@@ -12,5 +12,3 @@ const playerSchema = Joi.object({
   genre_register: Joi.string(),
   licenseNumber_register: Joi.number().required()
 });
-
-export default playerSchema;

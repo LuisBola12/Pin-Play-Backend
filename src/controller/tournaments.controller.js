@@ -1,7 +1,7 @@
-import { uploadImageToAWS } from "../s3";
-import { categories, tourneysPlayed } from "../data/tourneys.data"
+const { uploadImageToAWS } = require("../s3"); 
+const { categories, tourneysPlayed } = require("../data/tourneys.data");
 
-export const addTournament = async (req, res) => {
+exports.addTournament = async (req, res) => {
     const { name, date, location, category } = req.body;
     const image = req.files.image;
     if (image) {
@@ -18,7 +18,7 @@ export const addTournament = async (req, res) => {
     });
 }
 
-export const getCategories = (req, res) =>{
+exports.getCategories = (req, res) =>{
   try{
     res.status(200).json(categories)
   }catch(error){
@@ -27,7 +27,7 @@ export const getCategories = (req, res) =>{
 }
 
 // get all tournaments based on actual page and category
-export const getTournaments = (req, res) => {
+exports.getTournaments = (req, res) => {
     const { category, page, maxAmountPage } = req.query;
     let infoCategoryTournaments = [];
     if (category === "Todas") {
@@ -55,7 +55,7 @@ export const getTournaments = (req, res) => {
     res.status(200).json(infoToSend);
 }
 
-export const getPageCount = (req, res) =>{
+exports.getPageCount = (req, res) =>{
   const { category, maxAmountPage } = req.query;
   let infoCategoryTournaments = [];
   if (category === "Todas") {

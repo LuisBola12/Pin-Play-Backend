@@ -1,11 +1,9 @@
-import Joi from '@hapi/joi'
+const Joi = require('@hapi/joi');
 
-const tournamentsSchema = Joi.object({
+exports.tournamentsSchema = Joi.object({
   name: Joi.string().required(),
   category: Joi.string().required(),
   date: Joi.string().required(),
   location: Joi.string().required(),
   maxPlayers: Joi.number().required(),
 });
-
-export default tournamentsSchema;

@@ -18,7 +18,7 @@ const getTransporter = function () {
   return transporter;
 };
 
-export const  sendRecoveyEmail = async ( userEmail, randomToken ) => {
+exports.sendRecoveyEmail = async ( userEmail, randomToken ) => {
   let transporter = getTransporter();
   await transporter.sendMail({
     from: "PinPlayCi0137@gmail.com",

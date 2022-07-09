@@ -1,4 +1,4 @@
-export const users = [
+exports.users = [
   {
     userID: 1,
     email: 'jdvenegas50@gmail.com',
@@ -99,8 +99,4 @@ export const users = [
     email: 'jdvenegas501653@gmail.com',
     password: '$2b$10$WY3RkVNwkUe13n/bVDXBZ.VgKeNG..uVAQ4YRAWyQexTL/f3Lca0y',
   },
-]
-
-export const recoveryCode = [
-
 ]

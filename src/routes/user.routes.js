@@ -1,13 +1,14 @@
-import { Router } from 'express';
-import { createUser, login, recoverPassword, resetPassword } from '../controller/user.Controller';
-import { validateSchema } from '../middlewares/validate.schema';
-import playerSchema from '../schema/player.schema';
 
-const routerUsers = Router();
+const { createUser, login, recoverPassword, resetPassword } = require('../controller/user.Controller');
+const { validateSchema } = require('../middlewares/validate.schema');
+const {playerSchema} = require('../schema/player.schema');
+
+const express = require('express')
+const routerUsers = express.Router();
 
 routerUsers.post('/createUser', [validateSchema(playerSchema)], createUser)
 routerUsers.post('/login', login)
 routerUsers.post('/recoverPassword', recoverPassword)
 routerUsers.post('/resetPassword', resetPassword)
 
-export default routerUsers;
+module.exports = routerUsers;

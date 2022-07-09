@@ -1,10 +1,11 @@
-import { Router } from 'express';
-import { getCategories, addTournament, getTournaments, getPageCount } from '../controller/tournaments.controller';
-import { checkAuth } from '../middlewares/auth';
-import tournamentsSchema from '../schema/tournaments.schema';
-import { validateSchema } from '../middlewares/validate.schema';
 
-const routerTourneys = Router();
+const { getCategories, addTournament, getTournaments, getPageCount } = require('../controller/tournaments.controller');
+const { checkAuth } =  require('../middlewares/auth');
+const tournamentsSchema =  require('../schema/tournaments.schema');
+const { validateSchema } =  require('../middlewares/validate.schema');
+
+const express = require('express')
+const routerTourneys = express.Router();
 
 routerTourneys.post('/tournaments',[validateSchema(tournamentsSchema), checkAuth], addTournament);
 routerTourneys.get('/categories', getCategories);
@@ -12,4 +13,4 @@ routerTourneys.get('/getTournaments', getTournaments);
 routerTourneys.get('/getTournamentPages', getPageCount);
 
 
-export default routerTourneys;
+module.exports =  routerTourneys;

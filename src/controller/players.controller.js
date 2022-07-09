@@ -1,8 +1,8 @@
-import { players,tourneysPlayersRelation, losesVictoryRate } from "../data/players.data";
-import { tourneysPlayed } from "../data/tourneys.data";
-import { getImageFromAWS } from "../s3";
+const { players,tourneysPlayersRelation, losesVictoryRate } = require("../data/players.data");
+const { tourneysPlayed } = require("../data/tourneys.data");
+const { getImageFromAWS } = require("../s3");
 
-export const getAllPlayers = (req,res) =>{
+exports.getAllPlayers = (req,res) =>{
     try {  
         res.json(players);
     } catch (error) {
@@ -10,7 +10,7 @@ export const getAllPlayers = (req,res) =>{
         res.send("An error ocurred on the server");
     }
 }
-const findPlayerTourneys = (licenseNumber)=>{
+exports.findPlayerTourneys = (licenseNumber)=>{
     let participationInfo = [];
     tourneysPlayersRelation.forEach(element => {
         if(Object.values(element).includes(parseInt(licenseNumber))){
@@ -33,7 +33,7 @@ const addKeyValue = (obj, key, data) =>{
     obj[key] = data;
 }
 
-export const getPlayerTourneys = (req,res) => {
+exports.getPlayerTourneys = (req,res) => {
     const {licenseNumber} = req.params;
     try {
         const exists = verifyAnIdExists(licenseNumber);
@@ -48,7 +48,7 @@ export const getPlayerTourneys = (req,res) => {
         res.send(error);
     }
 }
-export const getPlayerImage = (req,res) =>{
+exports.getPlayerImage = (req,res) =>{
     const {s3Id} = req.params;
     try {
         const subString = s3Id.substring(s3Id.indexOf('_') + 1);
@@ -79,7 +79,7 @@ const verifyAnIdExists = (id) => {
     return exists;
 }
 
-export const topPlayersCategory = (req, res) =>{
+exports.topPlayersCategory = (req, res) =>{
     const { category, page, maxAmountPage } = req.query;
     let infoCategoryPlayers = [];
     players.forEach(element => {
@@ -124,7 +124,7 @@ export const topPlayersCategory = (req, res) =>{
     res.status(200).json(infoToSend);
 } 
 
-export const amountOfLadderByCategory = (req, res) =>{
+exports.amountOfLadderByCategory = (req, res) =>{
     const { category, maxAmount } = req.query;
     let infoCategoryPlayers = [];
     players.forEach(element => {

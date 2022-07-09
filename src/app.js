@@ -1,14 +1,16 @@
-import express from 'express';
-import config from './config';
-import routerPlayers from './routes/players.routes';
-import routerTourneys from './routes/tourneys.routes';
-import routerUsers from './routes/user.routes';
-import morgan from 'morgan';
-import cors from "cors";
-import fileUpload from 'express-fileupload';
-import swaggerUI from "swagger-ui-express";
-import swaggerFile from "./swagger.json"
+const express = require('express');
+
+const routerPlayers = require('./routes/players.routes');
+const routerTourneys = require('./routes/tourneys.routes');
+const routerUsers = require('./routes/user.routes');
+const morgan = require('morgan');
+const cors = require('cors');
+const fileUpload = require('express-fileupload');
+const swaggerUI = require("swagger-ui-express");
+const swaggerFile = require("./swagger.json");
+
 const app = express();
+const config = require('./config');
 
 //Settings
 app.set('port',config.port);
@@ -27,4 +29,5 @@ app.use(routerPlayers);
 app.use(routerTourneys);
 app.use(routerUsers);
 
-export default app;
+module.exports = app;
+ 

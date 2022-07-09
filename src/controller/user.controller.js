@@ -1,11 +1,11 @@
-import { uploadImageToAWS } from "../s3";
-import { tokenSign } from "../helpers/jsonWToken";
-import bcrypt, { compareSync } from "bcrypt";
-import { users, recoveryCode } from "../data/users.data";
-import { players } from "../data/players.data";
-import {sendRecoveyEmail} from "../services/mailer"
+const { uploadImageToAWS } = require("../s3"); 
+const { tokenSign } = require("../helpers/jsonWToken");
+const bcrypt = require("bcrypt");
+const { users, recoveryCode } = require("../data/users.data");
+const { players} = require("../data/players.data");
+const {sendRecoveyEmail} = require("../services/mailer");
 
-export const createUser = async (req, res) => {
+exports.createUser = async (req, res) => {
   const photo = req.files.image_register;
   try {
     let filePath = "user_icon2.png";
@@ -38,7 +38,7 @@ export const createUser = async (req, res) => {
 
 };
 
-export const login = async (req, res) => {
+exports.login = async (req, res) => {
   const { email, password } = req.body;
   let userData;
   users.forEach((element) => {
@@ -63,7 +63,7 @@ export const login = async (req, res) => {
   res.send({ data: playerData, tokenSesion });
 };
 
-export const recoverPassword = async (req, res) => {
+exports.recoverPassword = async (req, res) => {
   const { email } = req.body;
   let userData;
   users.forEach((element) => {
@@ -107,7 +107,7 @@ export const recoverPassword = async (req, res) => {
 };
 
 
-export const resetPassword = async (req, res) => {
+exports.resetPassword = async (req, res) => {
   const { email, password, recoveryCodeRecv } = req.body;
 
   let recoveryCodeData
