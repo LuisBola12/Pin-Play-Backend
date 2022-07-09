@@ -100,3 +100,7 @@ exports.users = [
     password: '$2b$10$WY3RkVNwkUe13n/bVDXBZ.VgKeNG..uVAQ4YRAWyQexTL/f3Lca0y',
   },
 ]
+
+exports.recoveryCode = [
+
+]
