@@ -1,5 +1,5 @@
 
-const { createUser, login, recoverPassword, resetPassword } = require('../controller/user.Controller');
+const { createUser, login, recoverPassword, resetPassword } = require('../controller/user.controller');
 const { validateSchema } = require('../middlewares/validate.schema');
 const {playerSchema} = require('../schema/player.schema');
 

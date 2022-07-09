@@ -1,5 +1,4 @@
 const express = require('express');
-
 const routerPlayers = require('./routes/players.routes');
 const routerTourneys = require('./routes/tourneys.routes');
 const routerUsers = require('./routes/user.routes');
@@ -14,7 +13,6 @@ const config = require('./config');
 
 //Settings
 app.set('port',config.port);
-console.log("AAA")
 
 //Middlewares
 app.use(cors());
