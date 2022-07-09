@@ -1,0 +1,904 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API PinPlay.",
+    "description": "Esta API se encarag de responde los llamados del frontend de la aplicación PinPlay y responder con la información resguardada en la base de datos PinPlay.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://localhost:4000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "players",
+      "description": "Este endpoint maneja toda la información realacionada con los jugadores registrados."
+    },
+    {
+      "name": "users",
+      "description": "Este endpoint maneja toda la información relacionada con los usuarios de la aplicación."
+    },
+    {
+      "name": "tourneys",
+      "description": "Este endpoint maneja toda la información relacionada con los torneos de la aplicación."
+    }
+  ],
+  "paths": {
+    "/players": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Consigue la información de todos los jugadores registrados en la aplicación.",
+        "responses": {
+          "200": {
+            "description": "(OK) Los jugadores registrados en la aplicacion han sido retornados correctamente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyGetPlayers"
+                }
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/playerImage/{licenseNumber}": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Consigue el binario de la imagen de un jugador.",
+        "parameters": [
+          {
+            "name": "licenseNumber",
+            "in": "path",
+            "description": "Numero de carnet del jugador.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "(OK) Binario de la imagen buscada.",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/playerTourneys/{licenseNumber}": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Consigue los torneos en los que ha participado un jugador.",
+        "parameters": [
+          {
+            "name": "licenseNumber",
+            "in": "path",
+            "description": "Numero de carnet del jugador.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "(OK) Torneos del jugador.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyTorneosParticipados"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/topPlayersCategory": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Consigue los jugadores mejor clasificados en una categoría.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "category",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "La categoría de la cual se van a buscar los jugadores mejor puntuados."
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Corresponde a la página en la cual esta situada la calsificación."
+          },
+          {
+            "in": "query",
+            "name": "maxAmountPage",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Corresponde a la máxima cantidad de jugadores por página."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "(OK) Calsificación de jugadores de la página y categoría brindada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BodyTopPlayersCategory"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/amountOfPages": {
+      "get": {
+        "tags": [
+          "players"
+        ],
+        "summary": "Consigue la cantidad de páginas de una categoría de jugadores.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "category",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "La categoría de la cual se van a buscar los jugadores."
+          },
+          {
+            "in": "query",
+            "name": "maxAmountPage",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Corresponde a la máxima cantidad de jugadores por página."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "(OK)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pages"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/createUser": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Se encarga de crear y registrar un usuario en la aplicación.",
+        "requestBody": {
+          "description": "Body que contiene toda la información necesaria para crear un usuario.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUser"
+              }
+            },
+            "image/png": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "(OK) Binario de la imagen buscada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCreated"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Endpoint encargado del login a la aplicación.",
+        "requestBody": {
+          "description": "Body que contiene toda la información necesaria para crear un usuario.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "(OK) Logged In."
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/recoverPassword": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Endpoint encargado de revisar si un email es válido para recuperar una contrasenia.",
+        "requestBody": {
+          "description": "Contiene el email de un usuario que desea cambiar su contrasenia.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecoverPassword"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "(OK)."
+          },
+          "401": {
+            "description": "(Unauthorized) Credenciales Inválidas."
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/resetPassword": {
+      "post": {
+        "tags": [
+          "users"
+        ],
+        "summary": "Endpoint encargado de resetear la contrasenia de un usuario.",
+        "requestBody": {
+          "description": "Contiene el codigo de verificación enviado al correo al usuario y el la contrasenia nueva.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResetPassword"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "(OK)."
+          },
+          "401": {
+            "description": "(Unauthorized) Código Incorrecto o El código de recuperación ya expiró."
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/tournaments": {
+      "post": {
+        "tags": [
+          "tourneys"
+        ],
+        "summary": "Endpoint para crear torneos.",
+        "requestBody": {
+          "description": "Body que contiene toda la información necesaria para crear un torneo.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTournament"
+              }
+            },
+            "image/png": {
+              "schema": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "(OK) Torneo Creado Correctamente."
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "tags": [
+          "tourneys"
+        ],
+        "summary": "Endpoint para conseguir las categorías de torneos.",
+        "responses": {
+          "200": {
+            "description": "(OK) Binario de la imagen buscada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Categories"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/getTournaments": {
+      "get": {
+        "tags": [
+          "tourneys"
+        ],
+        "summary": "Consigue los torneos dada una categoría y una página.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "category",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "La categoría de la cual se van a buscar los torneos."
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Corresponde a la página de la cual se buscan los torneos."
+          },
+          {
+            "in": "query",
+            "name": "maxAmountPage",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Corresponde a la máxima cantidad de torneos por página."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "(OK) Torneos según la página y categoría brindada.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Tournaments"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    },
+    "/getTournamentPages": {
+      "get": {
+        "tags": [
+          "tourneys"
+        ],
+        "summary": "Consigue la cantidad de páginas de una categoría de torneo.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "category",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "La categoría de la cual se van a buscar los torneos."
+          },
+          {
+            "in": "query",
+            "name": "maxAmountPage",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "description": "Corresponde a la máxima cantidad de torneos por página."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "(OK).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pages"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/ServerError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "NotFound": {
+        "description": "(NotFound)"
+      },
+      "ServerError": {
+        "description": "(ServerError)"
+      }
+    },
+    "schemas": {
+      "BodyGetPlayers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Nombre del jugador.",
+              "example": "Jorge"
+            },
+            "firstlastname": {
+              "type": "string",
+              "description": "Primer apellido del jugador.",
+              "example": "Montoya"
+            },
+            "secondlastname": {
+              "type": "string",
+              "description": "Segundo apellido del jugador.",
+              "example": "Bermudez"
+            },
+            "s3Id": {
+              "type": "string",
+              "description": "Url de la imagen que se encuentra en un s3 bucket.",
+              "example": "https://pin-play-ci0137.s3.amazonaws.com/jugadores/jugador_912.jpg"
+            },
+            "club": {
+              "type": "string",
+              "description": "Nombre del club en el cual juega este jugador.",
+              "example": "Escazu"
+            },
+            "age": {
+              "type": "number",
+              "description": "Edad del jugador.",
+              "example": 19
+            },
+            "category": {
+              "type": "string",
+              "description": "Categoría de tennis de mesa en la cual se encuentra el jugador.",
+              "example": "Segunda"
+            },
+            "licenseNumber": {
+              "type": "number",
+              "description": "Numero de carnet del jugador.",
+              "example": 812
+            },
+            "genre": {
+              "type": "string",
+              "description": "Género del jugador",
+              "example": "Masculino"
+            }
+          }
+        }
+      },
+      "BodyTopPlayersCategory": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "position": {
+              "type": "number",
+              "description": "Posicion en la calsificación de un jugador.",
+              "example": 1
+            },
+            "name": {
+              "type": "string",
+              "description": "Nombre del jugador.",
+              "example": "Jorge"
+            },
+            "firstlastname": {
+              "type": "string",
+              "description": "Primer apellido del jugador.",
+              "example": "Montoya"
+            },
+            "s3Id": {
+              "type": "string",
+              "description": "Url de la imagen que se encuentra en un s3 bucket.",
+              "example": "Jorge"
+            },
+            "points": {
+              "type": "number",
+              "description": "Puntos obtenidos por el jugador.",
+              "example": 712
+            },
+            "loses": {
+              "type": "number",
+              "description": "Cantidad de partidas perdidas por el jugador.",
+              "example": 11
+            },
+            "victories": {
+              "type": "number",
+              "description": "Cantidad de partidas ganadas por el jugador.",
+              "example": 11
+            }
+          }
+        }
+      },
+      "BodyTorneosParticipados": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "Name": {
+              "type": "string",
+              "description": "Nombre del torneo."
+            },
+            "Date": {
+              "type": "string",
+              "description": "Fecha en la que el torneo fue realizado."
+            },
+            "Position": {
+              "type": "number",
+              "description": "Número de posición en la que quedo el jugador."
+            },
+            "PtsEarned": {
+              "type": "number",
+              "description": "Número de puntos conseguidos por el jugador en el torneo."
+            }
+          }
+        }
+      },
+      "CreateUser": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nombre del jugador.",
+            "example": "Jorge"
+          },
+          "lastName1": {
+            "type": "string",
+            "description": "Primer apellido del jugador.",
+            "example": "Montoya"
+          },
+          "lastName2": {
+            "type": "string",
+            "description": "Segundo apellido del jugador.",
+            "example": "Bermudez"
+          },
+          "email": {
+            "type": "string",
+            "description": "Email del usuario creado.",
+            "example": "example@example.com"
+          },
+          "password": {
+            "type": "string",
+            "description": "Contrasenia creada por el usuario.",
+            "example": "patito123"
+          },
+          "age": {
+            "type": "number",
+            "description": "Edad del jugador.",
+            "example": 21
+          },
+          "club": {
+            "type": "string",
+            "description": "Club al que pertenece el jugador.",
+            "example": "Escazu"
+          },
+          "genre": {
+            "type": "string",
+            "description": "Género del jugador.",
+            "example": "Masculino"
+          },
+          "licenseNumber": {
+            "type": "number",
+            "description": "Licencia del jugador.",
+            "example": 7111
+          }
+        }
+      },
+      "UserCreated": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Nombre del jugador.",
+              "example": "Jorge"
+            },
+            "firstlastname": {
+              "type": "string",
+              "description": "Primer apellido del jugador.",
+              "example": "Montoya"
+            },
+            "secondlastname": {
+              "type": "string",
+              "description": "Segundo apellido del jugador.",
+              "example": "Bermudez"
+            },
+            "s3Id": {
+              "type": "string",
+              "description": "Url de la imagen que se encuentra en un s3 bucket.",
+              "example": "https://pin-play-ci0137.s3.amazonaws.com/jugadores/jugador_912.jpg"
+            },
+            "club": {
+              "type": "string",
+              "description": "Nombre del club en el cual juega este jugador.",
+              "example": "Escazu"
+            },
+            "age": {
+              "type": "number",
+              "description": "Edad del jugador.",
+              "example": 19
+            },
+            "category": {
+              "type": "string",
+              "description": "Categoría de tennis de mesa en la cual se encuentra el jugador.",
+              "example": "Primera"
+            },
+            "licenseNumber": {
+              "type": "number",
+              "description": "Numero de carnet del jugador.",
+              "example": 1271
+            },
+            "genre": {
+              "type": "string",
+              "description": "Género del jugador",
+              "example": "Masculino"
+            }
+          }
+        }
+      },
+      "Login": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Email del jugador.",
+            "example": "example@example.com"
+          },
+          "password": {
+            "type": "string",
+            "description": "Contrasenia del jugador.",
+            "example": "patito123"
+          }
+        }
+      },
+      "RecoverPassword": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "Email del jugador.",
+            "example": "example@example.com"
+          }
+        }
+      },
+      "ResetPassword": {
+        "type": "object",
+        "properties": {
+          "authCode": {
+            "type": "number",
+            "description": "Código de verificación enviado al correo de un usuario, para cambiar la contrasenia.",
+            "example": 12345
+          },
+          "password": {
+            "type": "string",
+            "description": "Email del jugador.",
+            "example": "patito123"
+          }
+        }
+      },
+      "CreateTournament": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nombre del Torneo.",
+            "example": "Torneo Scotiabank"
+          },
+          "date": {
+            "type": "string",
+            "description": "Fecha del torneo.",
+            "example": "7-5-2022"
+          },
+          "location": {
+            "type": "string",
+            "description": "Localización del torneo.",
+            "example": "Estadio Nacional"
+          },
+          "category": {
+            "type": "string",
+            "description": "Categría del torneo.",
+            "example": "Sexta"
+          },
+          "maxPlayers": {
+            "type": "number",
+            "description": "Número máximo de jugadores que pueden participar en el torneo.",
+            "example": 48
+          }
+        }
+      },
+      "Categories": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "category": {
+              "type": "string",
+              "description": "Nombre de la categoría.",
+              "example": "Primera"
+            }
+          }
+        }
+      },
+      "Tournaments": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "Tourney_id": {
+              "type": "number",
+              "description": "Id del torneo.",
+              "example": 1
+            },
+            "Name": {
+              "type": "string",
+              "description": "Nombre del torneo.",
+              "example": "Torneo Benéfico Scotiabank"
+            },
+            "Date": {
+              "type": "string",
+              "description": "Fecha del torneo.",
+              "example": "27/4/2022"
+            },
+            "Location": {
+              "type": "string",
+              "description": "Localización del torneo.",
+              "example": "San Jose"
+            },
+            "Category": {
+              "type": "string",
+              "description": "Categoría del torneo.",
+              "example": "Primera"
+            },
+            "MaxPlayers": {
+              "type": "number",
+              "description": "Edad del jugador.",
+              "example": 48
+            },
+            "s3Id": {
+              "type": "string",
+              "description": "Url del objeto en  aws.",
+              "example": "https://pin-play-ci0137.s3.amazonaws.com/torneos/torneo_Torneo+26.jpeg"
+            }
+          }
+        }
+      },
+      "Pages": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "PageNumber": {
+              "type": "number",
+              "description": "Número de la página.",
+              "example": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
