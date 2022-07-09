@@ -10,7 +10,7 @@ exports.getAllPlayers = (req,res) =>{
         res.send("An error ocurred on the server");
     }
 }
-exports.findPlayerTourneys = (licenseNumber)=>{
+const findPlayerTourneys = (licenseNumber)=>{
     let participationInfo = [];
     tourneysPlayersRelation.forEach(element => {
         if(Object.values(element).includes(parseInt(licenseNumber))){

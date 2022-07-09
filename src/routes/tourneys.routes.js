@@ -1,7 +1,7 @@
 
 const { getCategories, addTournament, getTournaments, getPageCount } = require('../controller/tournaments.controller');
 const { checkAuth } =  require('../middlewares/auth');
-const tournamentsSchema =  require('../schema/tournaments.schema');
+const { tournamentsSchema } =  require('../schema/tournaments.schema');
 const { validateSchema } =  require('../middlewares/validate.schema');
 
 const express = require('express')
