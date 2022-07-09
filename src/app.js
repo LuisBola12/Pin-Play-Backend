@@ -12,6 +12,7 @@ const app = express();
 
 //Settings
 app.set('port',config.port);
+console.log("AAA")
 
 //Middlewares
 app.use(cors());
