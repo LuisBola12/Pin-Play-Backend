@@ -6,4 +6,5 @@ exports.tournamentsSchema = Joi.object({
   date: Joi.string().required(),
   location: Joi.string().required(),
   maxPlayers: Joi.number().required(),
+  image: Joi.any(),
 });
