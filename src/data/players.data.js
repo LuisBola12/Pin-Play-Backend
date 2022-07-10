@@ -994,7 +994,7 @@ exports.tourneysPlayersRelation = [
 
 ]
 
-export const losesVictoryRate = [
+exports.losesVictoryRate = [
     {
         licenseNumber: 711,
         victories: 60,
