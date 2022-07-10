@@ -31,7 +31,7 @@ exports.createUser = async (req, res) => {
     };
 
     const tokenSesion = await tokenSign(req.body.email);
-    res.send({ data: data, tokenSesion });
+    res.json({ data: data, tokenSesion });
   } catch (error) {
     console.log(error);
   }
