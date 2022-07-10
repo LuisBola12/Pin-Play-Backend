@@ -118,12 +118,12 @@ exports.resetPassword = async (req, res) => {
   });
 
   if(!recoveryCodeData){
-    res.status(401).send("Codigo Incorrecto");
+    res.status(401).json({errorMsg:"Codigo Incorrecto"});
     return;
   }
   const recoveryDate = new Date(recoveryCodeData.date )
   if (recoveryDate < new Date()) {
-    res.status(401).send("El código de recuperación ya expiró.");
+    res.status(401).json({errorMsg:"El código de verificación ya expiró"});
     return;
   }
   const saltRounds = 10;
