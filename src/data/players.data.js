@@ -1,4 +1,4 @@
-exports.players = [
+export const players = [
     {
         userID: 1,
         position: 1,
@@ -13,7 +13,7 @@ exports.players = [
         genre: "Masculino"
     },
     {
-        userID: 19,
+        userID: 2,
         position: 2,
         name: "Jordan",
         firstLastname : "Calvo",
@@ -26,7 +26,7 @@ exports.players = [
         genre: "Masculino"
     },
     {
-        userID: 20,
+        userID: 3,
         position: 3,
         name: "Julio",
         firstLastname : "Lopez",
@@ -39,7 +39,7 @@ exports.players = [
         genre: "Masculino"
     },
     {
-        userID: 11,
+        userID: 4,
         position: 4,
         name: "Angelo",
         firstLastname : "Calvo",
@@ -52,7 +52,7 @@ exports.players = [
         genre: "Masculino"
     },
     {
-        userID: 16,
+        userID: 5,
         position: 5,
         name: "Gerardo",
         firstLastname : "Bustamante",
@@ -65,7 +65,7 @@ exports.players = [
         genre: "Masculino"
     },
     {
-        userID: 7,
+        userID: 6,
         position: 6,
         name: "Angie",
         firstLastname : "Rodriguez",
@@ -78,7 +78,7 @@ exports.players = [
         genre: "Femenino"
     },
     {
-        userID: 9,
+        userID: 7,
         position: 7,
         name: "David",
         firstLastname : "Atias",
@@ -91,12 +91,12 @@ exports.players = [
         genre: "Masculino"
     },
     {
-        userID: 3,
+        userID: 8,
         position: 8,
         name: "Jose",
         firstLastname : "Murillo",
         secondLastname : "Lopez",
-        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/jugadores/jugador_211.jpg",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
         club: "Escazú",
         age: 31,
         category: "Primera",
@@ -104,7 +104,202 @@ exports.players = [
         genre: "Masculino"
     },
     {
+        userID: 9,
+        position: 9,
+        name: "Marcelo",
+        firstLastname : "Castro",
+        secondLastname : "Madrigal",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "SeleMiracleRun",
+        age: 20,
+        category: "Primera",
+        licenseNumber: 2111,
+        genre: "Masculino"
+    },
+    {
+        userID: 10,
+        position: 10,
+        name: "Mariana",
+        firstLastname : "Valverde",
+        secondLastname : "Lopez",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Escazú",
+        age: 38,
+        category: "Primera",
+        licenseNumber: 2112,
+        genre: "Femenino"
+    },
+    {
+        userID: 11,
+        position: 11,
+        name: "Mariela",
+        firstLastname : "He",
+        secondLastname : "Zheng",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Escazú",
+        age: 31,
+        category: "Primera",
+        licenseNumber: 2113,
+        genre: "Femenino"
+    },
+    {
+        userID: 12,
+        position: 12,
+        name: "Naryeri",
+        firstLastname : "Reyes",
+        secondLastname : "Lopez",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "San Pedro",
+        age: 31,
+        category: "Primera",
+        licenseNumber: 2114,
+        genre: "Femenino"
+    },
+    {
+        userID: 13,
+        position: 13,
+        name: "Oriana",
+        firstLastname : "Lopez",
+        secondLastname : "Lopez",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Escazú",
+        age: 31,
+        category: "Primera",
+        licenseNumber: 2115,
+        genre: "Femenino"
+    },
+    {
+        userID: 14,
+        position: 14,
+        name: "Oscar",
+        firstLastname : "Venegas",
+        secondLastname : "Lopez",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Escazú",
+        age: 31,
+        category: "Primera",
+        licenseNumber: 2116,
+        genre: "Masculino"
+    },
+    {
+        userID: 15,
+        position: 15,
+        name: "Paco",
+        firstLastname : "Nuñez",
+        secondLastname : "Lopez",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Escazú",
+        age: 31,
+        category: "Primera",
+        licenseNumber: 2117,
+        genre: "Masculino"
+    },
+    {
+        userID: 16,
+        position: 16,
+        name: "Paola",
+        firstLastname : "Murillo",
+        secondLastname : "Lopez",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Escazú",
+        age: 31,
+        category: "Primera",
+        licenseNumber: 2118,
+        genre: "Femenino"
+    },
+    {
         userID: 17,
+        position: 17,
+        name: "Sara",
+        firstLastname : "Atias",
+        secondLastname : "Lopez",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Escazú",
+        age: 31,
+        category: "Primera",
+        licenseNumber: 2119,
+        genre: "Femenino"
+    },
+    {
+        userID: 18,
+        position: 18,
+        name: "Sofia",
+        firstLastname : "Murillo",
+        secondLastname : "Lopez",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Escazú",
+        age: 31,
+        category: "Primera",
+        licenseNumber: 2120,
+        genre: "Femenino"
+    },
+    {
+        userID: 19,
+        position: 19,
+        name: "Tianyu",
+        firstLastname : "He",
+        secondLastname : "Lopez",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Escazú",
+        age: 31,
+        category: "Primera",
+        licenseNumber: 2121,
+        genre: "Femenino"
+    },
+    {
+        userID: 20,
+        position: 20,
+        name: "Uriel",
+        firstLastname : "Santamaria",
+        secondLastname : "Broncano",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Escazú",
+        age: 31,
+        category: "Primera",
+        licenseNumber: 2122,
+        genre: "Masculino"
+    },
+    {
+        userID: 21,
+        position: 21,
+        name: "Valeria",
+        firstLastname : "Gomez",
+        secondLastname : "Lopez",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Escazú",
+        age: 31,
+        category: "Primera",
+        licenseNumber: 2123,
+        genre: "Femenino"
+    },
+    {
+        userID: 22,
+        position: 22,
+        name: "Yorleny",
+        firstLastname : "Murillo",
+        secondLastname : "Lopez",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Escazú",
+        age: 31,
+        category: "Primera",
+        licenseNumber: 2124,
+        genre: "Femenino"
+    },
+    {
+        userID: 23,
+        position: 23,
+        name: "Zion",
+        firstLastname : "Valverde",
+        secondLastname : "Lopez",
+        s3Id:"https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Buben",
+        age: 31,
+        category: "Primera",
+        licenseNumber: 2125,
+        genre: "Masculino"
+    },
+    {
+        userID: 24,
         position: 1,
         name: "Carmen",
         firstLastname : "Valverde",
@@ -117,7 +312,7 @@ exports.players = [
         genre: "Femenino"
     },
     {
-        userID: 5,
+        userID: 25,
         position: 2,
         name: "Luis",
         firstLastname : "Bolanos",
@@ -130,7 +325,7 @@ exports.players = [
         genre: "Masculino"
     },
     {
-        userID: 14,
+        userID: 26,
         position: 3,
         name: "Rebeca",
         firstLastname : "Perez",
@@ -143,7 +338,7 @@ exports.players = [
         genre: "Femenino"
     },
     {
-        userID: 2,
+        userID: 27,
         position: 4,
         name: "Jimena",
         firstLastname : "Ruiz",
@@ -156,7 +351,7 @@ exports.players = [
         genre: "Femenino"
     },
     {
-        userID: 10,
+        userID: 27,
         position: 5,
         name: "Camila",
         firstLastname : "Rodriguez",
@@ -169,7 +364,7 @@ exports.players = [
         genre: "Femenino"
     },
     {
-        userID: 13,
+        userID: 29,
         position: 1,
         name: "Yohan",
         firstLastname : "Blake",
@@ -182,7 +377,7 @@ exports.players = [
         genre: "Masculino"
     },
     {
-        userID: 15,
+        userID: 30,
         position: 2,
         name: "Melanny",
         firstLastname : "Arias",
@@ -195,7 +390,7 @@ exports.players = [
         genre: "Femenino"
     },
     {
-        userID: 18,
+        userID: 31,
         position: 3,
         name: "Jesus",
         firstLastname : "Navarro",
@@ -208,7 +403,7 @@ exports.players = [
         genre: "Masculino"
     },
     {
-        userID: 4,
+        userID: 32,
         position: 4,
         name: "Angela",
         firstLastname : "Valverde",
@@ -221,7 +416,7 @@ exports.players = [
         genre: "Femenino"
     },
     {
-        userID: 6,
+        userID: 33,
         position: 5,
         name: "Guillermo",
         firstLastname : "Rodriguez",
@@ -234,7 +429,7 @@ exports.players = [
         genre: "Masculino"
     },
     {
-        userID: 12,
+        userID: 34,
         position: 6,
         name: "Kenneth",
         firstLastname : "Ali",
@@ -247,21 +442,411 @@ exports.players = [
         genre: "Masculino"
     },
     {
-        userID: 8,
+        userID: 35,
         position: 7,
-        name: "Sofía",
-        firstLastname : "Jimnez",
+        name: "Tilman",
+        firstLastname : "Venegas",
         secondLastname : "Calvo",
-        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/jugadores/jugador_912.jpg",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
         club: "Heredia",
         age: 27,
         category: "Tercera",
         licenseNumber: 912,
+        genre: "Masculino"
+    },
+    {
+        userID: 36,
+        position: 8,
+        name: "Ursula",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Tercera",
+        licenseNumber: 9121,
+        genre: "Femenino"
+    },
+    {
+        userID: 37,
+        position: 9,
+        name: "Valentina",
+        firstLastname : "Castro",
+        secondLastname : "Alpizar",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Tercera",
+        licenseNumber: 9122,
+        genre: "Femenino"
+    },
+    {
+        userID: 38,
+        position: 10,
+        name: "Wilber",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Tercera",
+        licenseNumber: 9123,
+        genre: "Masculino"
+    },
+    {
+        userID: 39,
+        position: 11,
+        name: "William",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Tercera",
+        licenseNumber: 9124,
+        genre: "Femenino"
+    },
+    {
+        userID: 40,
+        position: 12,
+        name: "Zoe",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Tercera",
+        licenseNumber: 9125,
+        genre: "Femenino"
+    },
+    {
+        userID: 41,
+        position: 1,
+        name: "Alberto",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Cuarta",
+        licenseNumber: 9126,
+        genre: "Femenino"
+    },    
+    {
+        userID: 42,
+        position: 2,
+        name: "Brandon",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Cuarta",
+        licenseNumber: 9127,
+        genre: "Femenino"
+    },
+    {
+        userID: 43,
+        position: 3,
+        name: "Cesar",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Cuarta",
+        licenseNumber: 9129,
+        genre: "Femenino"
+    },
+    {
+        userID: 44,
+        position: 4,
+        name: "Cesar",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Cuarta",
+        licenseNumber: 9130,
+        genre: "Femenino"
+    },
+    {
+        userID: 45,
+        position: 5,
+        name: "Claudio",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Cuarta",
+        licenseNumber: 9131,
+        genre: "Femenino"
+    },
+    {
+        userID: 46,
+        position: 6,
+        name: "Cosme",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Cuarta",
+        licenseNumber: 9132,
+        genre: "Femenino"
+    },
+    {
+        userID: 47,
+        position: 7,
+        name: "Cristian",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Cuarta",
+        licenseNumber: 9133,
+        genre: "Femenino"
+    },
+    {
+        userID: 48,
+        position: 8,
+        name: "Cristobal",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Cuarta",
+        licenseNumber: 9134,
+        genre: "Femenino"
+    },
+    {
+        userID: 49,
+        position: 9,
+        name: "Diana",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Cuarta",
+        licenseNumber: 9135,
+        genre: "Femenino"
+    },
+    {
+        userID: 50,
+        position: 10,
+        name: "Dylan",
+        firstLastname : "Castro",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Cuarta",
+        licenseNumber: 9136,
+        genre: "Femenino"
+    },
+    {
+        userID: 51,
+        position: 1,
+        name: "Adolfo",
+        firstLastname : "Ruiz",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Quinta",
+        licenseNumber: 7111,
+        genre: "Femenino"
+    },
+    {
+        userID: 53,
+        position: 2,
+        name: "Adrian",
+        firstLastname : "Lopez",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Quinta",
+        licenseNumber: 7112,
+        genre: "Femenino"
+    },
+    {
+        userID: 53,
+        position: 3,
+        name: "Agustin",
+        firstLastname : "Broncano",
+        secondLastname : "Calvo",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Quinta",
+        licenseNumber: 7113,
+        genre: "Femenino"
+    },
+    {
+        userID: 54,
+        position: 4,
+        name: "Alan",
+        firstLastname : "Solis",
+        secondLastname : "Solis",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Quinta",
+        licenseNumber: 7114,
+        genre: "Femenino"
+    },
+    {
+        userID: 55,
+        position: 5,
+        name: "Alejandro",
+        firstLastname : "Madrigal",
+        secondLastname : "Gomez",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Quinta",
+        licenseNumber: 7115,
+        genre: "Femenino"
+    },
+    {
+        userID: 56,
+        position: 1,
+        name: "Bartolo",
+        firstLastname : "Tatum",
+        secondLastname : "Messi",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Sexta",
+        licenseNumber: 7222,
+        genre: "Femenino"
+    },
+    {
+        userID: 57,
+        position: 2,
+        name: "Bernando",
+        firstLastname : "Madrigal",
+        secondLastname : "Gomez",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Sexta",
+        licenseNumber: 7223,
+        genre: "Femenino"
+    },
+    {
+        userID: 58,
+        position: 3,
+        name: "Bruno",
+        firstLastname : "Esposito",
+        secondLastname : "Gomez",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Sexta",
+        licenseNumber: 7224,
+        genre: "Femenino"
+    },
+    {
+        userID: 59,
+        position: 4,
+        name: "Byron",
+        firstLastname : "Zeledon",
+        secondLastname : "Gomez",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Sexta",
+        licenseNumber: 7225,
+        genre: "Femenino"
+    },
+    {
+        userID: 60,
+        position: 5,
+        name: "Edwin",
+        firstLastname : "Madrigal",
+        secondLastname : "Gomez",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Sexta",
+        licenseNumber: 7226,
+        genre: "Femenino"
+    },
+    {
+        userID: 61,
+        position: 6,
+        name: "Elias",
+        firstLastname : "Madrigal",
+        secondLastname : "Gomez",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Sexta",
+        licenseNumber: 7227,
+        genre: "Femenino"
+    },
+    {
+        userID: 62,
+        position: 7,
+        name: "Enrique",
+        firstLastname : "Aguero",
+        secondLastname : "Gomez",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Sexta",
+        licenseNumber: 7228,
+        genre: "Femenino"
+    },
+    {
+        userID: 63,
+        position: 8,
+        name: "Eugenio",
+        firstLastname : "Arias",
+        secondLastname : "Gomez",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Sexta",
+        licenseNumber: 7228,
+        genre: "Femenino"
+    },
+    {
+        userID: 64,
+        position: 9,
+        name: "Maria",
+        firstLastname : "Madrigal",
+        secondLastname : "Gomez",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Sexta",
+        licenseNumber: 7230,
+        genre: "Femenino"
+    },
+    {
+        userID: 65,
+        position: 10,
+        name: "Manuela",
+        firstLastname : "Bolaños",
+        secondLastname : "Bolaños",
+        s3Id: "https://pin-play-ci0137.s3.amazonaws.com/user_icon2.png",
+        club: "Heredia",
+        age: 27,
+        category: "Sexta",
+        licenseNumber: 7231,
         genre: "Femenino"
     },
 ]
 
-exports.tourneysPlayersRelation = [
+export const tourneysPlayersRelation = [
     {
         Tourney_id: 1,
         licenseNumber: 711,
@@ -409,7 +994,7 @@ exports.tourneysPlayersRelation = [
 
 ]
 
-exports.losesVictoryRate = [
+export const losesVictoryRate = [
     {
         licenseNumber: 711,
         victories: 60,
